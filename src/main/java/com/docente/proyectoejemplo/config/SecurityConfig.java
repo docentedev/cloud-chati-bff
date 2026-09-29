@@ -25,7 +25,7 @@ public class SecurityConfig {
                 // Añadimos nuestro filtro del secreto antes del filtro de autenticación
                 .addFilterBefore(secretGatewayFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                        // .requestMatchers("/api/health").permitAll() // Por si deseas dejar el health libre
+                        .requestMatchers("/api/health").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
