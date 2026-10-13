@@ -42,6 +42,12 @@ dependencies {
     // 3. DB Con
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'org.postgresql:postgresql'
+
+    // 4. SNS: publicar solicitudes de informes en el topic report-events (el BOM de AWS SDK v2 ya está importado arriba)
+    implementation 'software.amazon.awssdk:sns'
+
+    // 5. JSON para serializar el mensaje SNS (este proyecto no trae Jackson por defecto)
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
 }
 
 tasks.named('test') {
